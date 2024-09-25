@@ -20,6 +20,7 @@ return {
     opts = {
       ensure_installed = {
         "stylua",
+        "prettier",
         -- add more arguments for adding more null-ls sources
       },
     },
