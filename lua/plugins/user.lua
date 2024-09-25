@@ -15,6 +15,15 @@ return {
 
   -- == Examples of Overriding Plugins ==
 
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      window = {
+        width = 40, -- Set the desired width here
+      },
+    },
+  },
+
   -- customize alpha options
   {
     "goolord/alpha-nvim",
