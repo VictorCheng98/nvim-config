@@ -46,9 +46,9 @@ return {
       }
 
       dashboard.section.buttons.val = {
-        dashboard.button("p", "  Projects", ":Telescope projects<CR>"), -- Recent Projects via Telescope
-        dashboard.button("r", "Recent", ":Telescope oldfiles<CR>"), -- Clock for Recent files
-        dashboard.button("s", "Settings", ":e $MYVIMRC | :cd %:p:h | pwd<CR>"), -- Wrench for Settings
+        dashboard.button("p", "Projects", ":Telescope projects<CR>"), -- Telescope icon for Projects
+        dashboard.button("r", "Recent", ":Telescope oldfiles<CR>"), -- Clock icon for Recent files
+        dashboard.button("s", "Settings", ":e $MYVIMRC | :cd %:p:h | pwd<CR>"), -- Tools icon for Settings
         dashboard.button("q", "Quit", ":qa<CR>"), -- Door icon for Quit
       }
 
@@ -66,6 +66,12 @@ return {
         show_hidden = true, -- Show hidden files in Telescope
         silent_chdir = false, -- Notify when changing directory automatically
         datapath = vim.fn.stdpath "data", -- Path to store project history
+
+        -- Additional settings from AstroNvim/astrocore
+        ignore_lsp = { "efm", "null-ls" }, -- Ignore specific LSP servers for root detection
+        ignore_dirs = { "~/.cargo/*", "~/projects/backup/*" }, -- Ignore specific directories from root detection
+        update_cwd = true, -- Automatically update the working directory
+        scope_chdir = "global", -- Scope of directory change: "global", "tab", or "win"
       }
 
       -- Load the Telescope extension to work with project.nvim
