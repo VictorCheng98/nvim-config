@@ -60,20 +60,14 @@ return {
     "ahmedkhalf/project.nvim",
     config = function()
       require("project_nvim").setup {
-        manual_mode = false, -- Automatically detect project based on root patterns
-        detection_methods = { "lsp", "pattern" }, -- Detect via LSP or root patterns
-        patterns = { ".git", "Makefile", "package.json" }, -- Root patterns to look for
-        show_hidden = true, -- Show hidden files in Telescope
-        silent_chdir = false, -- Notify when changing directory automatically
-        datapath = vim.fn.stdpath "data", -- Path to store project history
-
-        -- Additional settings from AstroNvim/astrocore
-        ignore_lsp = { "efm", "null-ls" }, -- Ignore specific LSP servers for root detection
-        ignore_dirs = { "~/.cargo/*", "~/projects/backup/*" }, -- Ignore specific directories from root detection
-        update_cwd = true, -- Automatically update the working directory
-        scope_chdir = "global", -- Scope of directory change: "global", "tab", or "win"
+        patterns = { ".git", ".gitignore", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pom.xml" },
+        detection_methods = { "pattern" },
+        manual_mode = true,
+        silent_chdir = false,
+        scope_chdir = "tab",
+        update_cwd = false,
+        show_hidden = false,
       }
-
       -- Load the Telescope extension to work with project.nvim
       require("telescope").load_extension "projects"
     end,
