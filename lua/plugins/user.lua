@@ -18,6 +18,9 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
+      filesystem = {
+        follow_current_file = false, -- Don't change the tree when switching buffers
+      },
       window = {
         width = 40, -- Set the desired width here
       },
@@ -43,12 +46,30 @@ return {
       }
 
       dashboard.section.buttons.val = {
-        dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
-        dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h | pwd<CR>"),
-        dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
+        dashboard.button("p", "  Projects", ":Telescope projects<CR>"), -- Recent Projects via Telescope
+        dashboard.button("r", "Recent", ":Telescope oldfiles<CR>"), -- Clock for Recent files
+        dashboard.button("s", "Settings", ":e $MYVIMRC | :cd %:p:h | pwd<CR>"), -- Wrench for Settings
+        dashboard.button("q", "Quit", ":qa<CR>"), -- Door icon for Quit
       }
 
       return opts
+    end,
+  },
+
+  {
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup {
+        manual_mode = false, -- Automatically detect project based on root patterns
+        detection_methods = { "lsp", "pattern" }, -- Detect via LSP or root patterns
+        patterns = { ".git", "Makefile", "package.json" }, -- Root patterns to look for
+        show_hidden = true, -- Show hidden files in Telescope
+        silent_chdir = false, -- Notify when changing directory automatically
+        datapath = vim.fn.stdpath "data", -- Path to store project history
+      }
+
+      -- Load the Telescope extension to work with project.nvim
+      require("telescope").load_extension "projects"
     end,
   },
 
