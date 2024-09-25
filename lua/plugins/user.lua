@@ -19,20 +19,28 @@ return {
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
+      local dashboard = require "alpha.themes.dashboard"
+
       -- customize the dashboard header
       opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+        "                                                     ",
+        "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+        "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+        "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+        "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+        "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+        "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+        "                                                     ",
       }
+
+      dashboard.section.buttons.val = {
+        dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
+        dashboard.button("f", "  > Find file", ":cd $HOME/Workspace | Telescope find_files<CR>"),
+        dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
+        dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h | pwd<CR>"),
+        dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
+      }
+
       return opts
     end,
   },
