@@ -26,6 +26,9 @@ return {
       },
       window = {
         width = 40,
+        mappings = {
+          ["<cr>"] = "open_with_window_picker",
+        },
       },
       event_handlers = {
         {
@@ -34,6 +37,18 @@ return {
         },
       },
     },
+  },
+
+  {
+    "s1n7ax/nvim-window-picker",
+    name = "window-picker",
+    event = "VeryLazy",
+    version = "2.*",
+    config = function()
+      require("window-picker").setup {
+        hint = "floating-big-letter",
+      }
+    end,
   },
 
   -- customize alpha options
