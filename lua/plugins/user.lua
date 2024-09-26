@@ -31,8 +31,6 @@ return {
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
-      local dashboard = require "alpha.themes.dashboard"
-
       -- customize the dashboard header
       opts.section.header.val = {
         "                                                     ",
@@ -45,31 +43,7 @@ return {
         "                                                     ",
       }
 
-      dashboard.section.buttons.val = {
-        dashboard.button("p", "Projects", ":Telescope projects<CR>"), -- Telescope icon for Projects
-        dashboard.button("r", "Recent", ":Telescope oldfiles<CR>"), -- Clock icon for Recent files
-        dashboard.button("s", "Settings", ":e $MYVIMRC | :cd %:p:h | pwd<CR>"), -- Tools icon for Settings
-        dashboard.button("q", "Quit", ":qa<CR>"), -- Door icon for Quit
-      }
-
       return opts
-    end,
-  },
-
-  {
-    "ahmedkhalf/project.nvim",
-    config = function()
-      require("project_nvim").setup {
-        patterns = { ".git", ".gitignore", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pom.xml" },
-        detection_methods = { "pattern" },
-        manual_mode = true,
-        silent_chdir = false,
-        scope_chdir = "tab",
-        update_cwd = false,
-        show_hidden = false,
-      }
-      -- Load the Telescope extension to work with project.nvim
-      require("telescope").load_extension "projects"
     end,
   },
 
