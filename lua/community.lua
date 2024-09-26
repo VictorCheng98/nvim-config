@@ -19,9 +19,16 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    opts = {
-      flavour = "macchiato", -- latte, frappe, macchiato, mocha
-    },
+    opts = function()
+      return {
+        flavour = "macchiato", -- latte, frappe, macchiato, mocha
+        dim_inactive = {
+          enabled = true,
+          shade = "dark",
+          percentage = 0.15, -- percentage of the shade to apply to the inactive window
+        },
+      }
+    end,
   },
 
   {
