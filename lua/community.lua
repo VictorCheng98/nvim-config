@@ -11,6 +11,7 @@ return {
   { import = "astrocommunity.motion.mini-move" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.utility.noice-nvim" },
+  { import = "astrocommunity.recipes.vscode" },
 
   -- import/override with your plugins folder
 
