@@ -20,7 +20,7 @@ return {
     opts = {
       filesystem = {
         cwd_target = "current",
-        follow_current_file = false,
+        follow_current_file = { enabled = false },
         hijack_netrw_behavior = "open_current",
         use_libuv_file_watcher = true,
       },
