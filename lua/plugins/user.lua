@@ -19,10 +19,19 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
       filesystem = {
-        follow_current_file = false, -- Don't change the tree when switching buffers
+        cwd_target = "current",
+        follow_current_file = false,
+        hijack_netrw_behavior = "open_current",
+        use_libuv_file_watcher = true,
       },
       window = {
-        width = 40, -- Set the desired width here
+        width = 40,
+      },
+      event_handlers = {
+        {
+          event = "neo_tree_buffer_enter",
+          handler = function(_) vim.opt_local.statusline = "%#Normal#" end,
+        },
       },
     },
   },
