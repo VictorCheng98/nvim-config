@@ -7,7 +7,6 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.motion.mini-move" },
 
   -- import/override with your plugins folder
