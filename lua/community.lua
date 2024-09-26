@@ -12,6 +12,7 @@ return {
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.recipes.vscode" },
+  { import = "astrocommunity.recipes.cache-colorscheme" },
 
   -- import/override with your plugins folder
 
@@ -22,6 +23,7 @@ return {
       flavour = "macchiato", -- latte, frappe, macchiato, mocha
     },
   },
+
   {
     "folke/noice.nvim",
     event = "VeryLazy",
