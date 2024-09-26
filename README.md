@@ -1,4 +1,4 @@
-# AstroNvim Template
+# AstroNvim Custom Config
 
 A custom config for [AstroNvim (v4+)](https://github.com/AstroNvim/AstroNvim)
 
