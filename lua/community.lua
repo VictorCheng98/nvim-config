@@ -13,6 +13,19 @@ return {
   { import = "astrocommunity.utility.noice-nvim" },
 
   -- import/override with your plugins folder
+
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    opts = {
+      flavour = "macchiato", -- latte, frappe, macchiato, mocha
+      dim_inactive = {
+        enabled = true, -- dims the background color of inactive window
+        shade = "dark",
+        percentage = 0.15, -- percentage of the shade to apply to the inactive window
+      },
+    },
+  },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
