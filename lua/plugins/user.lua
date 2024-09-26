@@ -40,6 +40,8 @@ return {
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
+      local dashboard = require "alpha.themes.dashboard"
+
       -- customize the dashboard header
       opts.section.header.val = {
         "                                                     ",
@@ -50,6 +52,14 @@ return {
         "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
         "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
         "                                                     ",
+      }
+
+      dashboard.section.buttons.val = {
+        dashboard.button("LDR S F", "Load a session", ""),
+        dashboard.button("f", "Find File", ":Telescope find_files<CR>"),
+        dashboard.button("r", "Recents", ":Telescope oldfiles<CR>"),
+        dashboard.button("c", "Config", ":e $MYVIMRC | :cd %:p:h | pwd<CR>"),
+        dashboard.button("q", "Quit", ":qa<CR>"),
       }
 
       return opts
