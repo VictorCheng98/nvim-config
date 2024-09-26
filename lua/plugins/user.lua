@@ -44,22 +44,23 @@ return {
 
       -- customize the dashboard header
       opts.section.header.val = {
-        "                                                     ",
-        "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-        "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-        "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-        "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-        "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-        "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-        "                                                     ",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "  ⟋|､",
+        " (°､ ｡ 7",
+        " |､  ~ヽ",
+        " じしf_,)〳",
       }
 
       dashboard.section.buttons.val = {
-        dashboard.button("LDR S F", "Load a session"),
-        dashboard.button("f", "Find File", ":Telescope find_files<CR>"),
-        dashboard.button("r", "Recents", ":Telescope oldfiles<CR>"),
-        dashboard.button("c", "Config", ":e $MYVIMRC | :cd %:p:h | pwd<CR>"),
-        dashboard.button("q", "Quit", ":qa<CR>"),
+        dashboard.button("LDR S F", "  Load a session"),
+        dashboard.button("LDR f f", "  Find File"),
+        dashboard.button("LDR f o", "  Recent Files"),
+        dashboard.button("c", "  Config", ":e $MYVIMRC<CR>"),
+        dashboard.button("LDR q", "󰅙  Quit"),
       }
 
       return opts
