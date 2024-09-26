@@ -1,10 +1,10 @@
-# AstroNvim Custom Config
+# AstroNvim Config
 
 A custom config for [AstroNvim (v4+)](https://github.com/AstroNvim/AstroNvim)
 
 Find more neovim plugins via [AstroCommunity](https://github.com/AstroNvim/astrocommunity/tree/main)
 
-## 🛠️ Installation
+## Installation
 
 #### If you have neovim installed, make a backup of your current nvim and shared folder
 
