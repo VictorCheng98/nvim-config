@@ -13,6 +13,7 @@ return {
   { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.recipes.vscode" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
+  { import = "astrocommunity.motion.leap-nvim" },
 
   -- import/override with your plugins folder
 
