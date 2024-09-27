@@ -14,6 +14,7 @@ return {
   { import = "astrocommunity.recipes.vscode" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.motion.leap-nvim" },
+  { import = "astrocommunity.motion.harpoon" },
 
   -- import/override with your plugins folder
 
