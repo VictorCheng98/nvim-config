@@ -18,9 +18,6 @@ return {
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.prettier.with {
         extra_args = { "--print-width", "80" },
-        env = {
-          PRETTIER_PRINT_WIDTH = "80", -- Overrides Prettier config by setting the environment variable
-        },
       },
     })
   end,
