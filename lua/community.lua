@@ -15,6 +15,7 @@ return {
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.motion.harpoon" },
+  { import = "astrocommunity.pack.typescript" },
 
   -- import/override with your plugins folder
 
