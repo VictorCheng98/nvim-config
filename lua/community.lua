@@ -5,19 +5,27 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
+
+  -- styling
   { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.motion.mini-move" },
-  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
-  { import = "astrocommunity.utility.noice-nvim" },
-  { import = "astrocommunity.recipes.vscode" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
+  { import = "astrocommunity.utility.noice-nvim" },
+
+  -- cmp
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
+
+  -- motion
+  { import = "astrocommunity.motion.mini-move" },
   { import = "astrocommunity.motion.leap-nvim" },
   { import = "astrocommunity.motion.harpoon" },
-  { import = "astrocommunity.pack.typescript" },
 
-  -- import/override with your plugins folder
+  -- language packs
+  { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.lua" },
+
+  -- misc
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  { import = "astrocommunity.recipes.vscode" },
 
   {
     "catppuccin/nvim",
