@@ -20,7 +20,6 @@ return {
   { import = "astrocommunity.motion.harpoon" },
 
   -- language packs
-  { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.lua" },
 
   -- misc
