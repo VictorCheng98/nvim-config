@@ -17,9 +17,8 @@ return {
       -- Set a formatter
       null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.prettierd.with {
-        -- command = "prettierd",
-        -- prefer_local = "node_modules/.bin",
-        only_local = "node_modules/.bin",
+        command = "prettierd",
+        prefer_local = true,
       },
     })
   end,
