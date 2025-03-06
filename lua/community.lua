@@ -26,6 +26,7 @@ return {
   -- misc
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.recipes.vscode" },
+  { import = "astrocommunity.git.git-blame-nvim" },
 
   {
     "catppuccin/nvim",
