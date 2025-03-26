@@ -12,7 +12,8 @@ return {
   { import = "astrocommunity.utility.noice-nvim" },
 
   -- cmp
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.completion.copilot-vim-cmp" },
 
   -- motion
   { import = "astrocommunity.motion.mini-move" },
