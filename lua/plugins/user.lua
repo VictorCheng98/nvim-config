@@ -53,33 +53,51 @@ return {
 
   -- customize alpha options
   {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      local dashboard = require "alpha.themes.dashboard"
+    "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          -- Customize the dashboard header
+          header = table.concat({
+            "",
+            "",
+            "",
+            "",
+            "",
+            "  ⟋|､",
+            " (°､ ｡ 7",
+            " |､  ~ヽ",
+            " じしf_,)〳",
+          }, "\n"),
 
-      -- customize the dashboard header
-      opts.section.header.val = {
-        "",
-        "",
-        "",
-        "",
-        "",
-        "  ⟋|､",
-        " (°､ ｡ 7",
-        " |､  ~ヽ",
-        " じしf_,)〳",
-      }
-
-      dashboard.section.buttons.val = {
-        dashboard.button("LDR S F", "  Load a session"),
-        dashboard.button("LDR f f", "  Find File"),
-        dashboard.button("LDR f o", "  Recent Files"),
-        dashboard.button("c", "  Config", ":e $MYVIMRC<CR>"),
-        dashboard.button("LDR q", "󰅙  Quit"),
-      }
-
-      return opts
-    end,
+          -- Define buttons using the `keys` format
+          keys = {
+            {
+              key = "S F",
+              action = function()
+                require("persistence").load() -- Example: Load a session
+              end,
+              desc = "  Load a session",
+            },
+            {
+              key = "f f",
+              action = function() require("snacks.picker").files() end,
+              desc = "  Find File",
+            },
+            {
+              key = "c",
+              action = function() vim.cmd "e $MYVIMRC" end,
+              desc = "  Config",
+            },
+            {
+              key = "q",
+              action = function() vim.cmd "qa" end,
+              desc = "󰅙  Quit",
+            },
+          },
+        },
+      },
+    },
   },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
