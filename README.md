@@ -1,6 +1,6 @@
 # AstroNvim Config
 
-A custom config for [AstroNvim (v4+)](https://github.com/AstroNvim/AstroNvim)
+A custom config for [AstroNvim (v5)](https://github.com/AstroNvim/AstroNvim)
 
 Find more neovim plugins via [AstroCommunity](https://github.com/AstroNvim/astrocommunity/tree/main)
 
