@@ -45,6 +45,17 @@ return {
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
+      eslint = {
+        settings = {
+          -- Don't nest under 'eslint' again, put them at the root level
+          run = "onSave",
+          codeActionOnSave = {
+            enable = true,
+            mode = "problems",
+          },
+        },
+        on_attach = function(client, bufnr) client.server_capabilities.documentFormattingProvider = false end,
+      },
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
     },
     -- customize how language servers are attached
