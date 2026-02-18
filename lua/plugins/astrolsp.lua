@@ -31,29 +31,55 @@ return {
         settings = {
           vtsls = {
             autoUseWorkspaceTsdk = true,
+            experimental = {
+              completion = {
+                enableServerSideFuzzyMatch = false,
+                entriesLimit = 75,
+              },
+            },
           },
           typescript = {
             tsserver = {
               maxTsServerMemory = 8192,
+              useSyntaxServer = "auto",
               watchOptions = {
+                watchFile = "useFsEventsOnParentDirectory",
+                watchDirectory = "useFsEvents",
+                fallbackPolling = "dynamicPriorityPolling",
                 excludeDirectories = {
                   "**/node_modules",
                   "**/.next",
                   "**/dist",
                   "**/.git",
                   "**/build",
+                  "**/coverage",
+                  "**/.turbo",
+                  "**/.cache",
                 },
               },
             },
             preferences = {
               importModuleSpecifier = "non-relative",
+              includePackageJsonAutoImports = "off",
             },
+            updateImportsOnFileMove = { enabled = "prompt" },
           },
           javascript = {
             tsserver = {
               maxTsServerMemory = 4096,
+              useSyntaxServer = "auto",
               watchOptions = {
-                excludeDirectories = { "**/node_modules", "**/.next", "**/dist" },
+                watchFile = "useFsEventsOnParentDirectory",
+                watchDirectory = "useFsEvents",
+                fallbackPolling = "dynamicPriorityPolling",
+                excludeDirectories = {
+                  "**/node_modules",
+                  "**/.next",
+                  "**/dist",
+                  "**/.git",
+                  "**/build",
+                  "**/coverage",
+                },
               },
             },
           },
