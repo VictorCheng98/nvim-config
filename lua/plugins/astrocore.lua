@@ -77,6 +77,28 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+
+        ["<Leader>gg"] = {
+          function()
+            local Terminal = require("toggleterm.terminal").Terminal
+            local lazygit = Terminal:new {
+              cmd = "lazygit",
+              hidden = true,
+              direction = "float",
+              float_opts = { border = "rounded" },
+              on_open = function(term)
+                vim.cmd "startinsert!"
+              end,
+            }
+            lazygit:toggle()
+          end,
+          desc = "Lazygit",
+        },
+        ["<Leader>g"] = { desc = "Git" },
+      },
+      t = {
+        -- allow ESC to exit lazygit terminal
+        ["<Esc>"] = false,
       },
     },
   },
