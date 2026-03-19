@@ -29,74 +29,26 @@ return {
     config = {
       vtsls = {
         settings = {
-          vtsls = {
-            autoUseWorkspaceTsdk = true,
-            experimental = {
-              completion = {
-                enableServerSideFuzzyMatch = false,
-                entriesLimit = 75,
-              },
-            },
-          },
           typescript = {
             tsserver = {
               maxTsServerMemory = 8192,
-              useSyntaxServer = "auto",
-              watchOptions = {
-                watchFile = "useFsEventsOnParentDirectory",
-                watchDirectory = "useFsEvents",
-                fallbackPolling = "dynamicPriorityPolling",
-                excludeDirectories = {
-                  "**/node_modules",
-                  "**/.next",
-                  "**/dist",
-                  "**/.git",
-                  "**/build",
-                  "**/coverage",
-                  "**/.turbo",
-                  "**/.cache",
-                },
-              },
             },
-            preferences = {
-              importModuleSpecifier = "non-relative",
-              includePackageJsonAutoImports = "off",
-            },
-            updateImportsOnFileMove = { enabled = "prompt" },
           },
           javascript = {
             tsserver = {
-              maxTsServerMemory = 4096,
-              useSyntaxServer = "auto",
-              watchOptions = {
-                watchFile = "useFsEventsOnParentDirectory",
-                watchDirectory = "useFsEvents",
-                fallbackPolling = "dynamicPriorityPolling",
-                excludeDirectories = {
-                  "**/node_modules",
-                  "**/.next",
-                  "**/dist",
-                  "**/.git",
-                  "**/build",
-                  "**/coverage",
-                },
-              },
+              maxTsServerMemory = 8192,
             },
           },
         },
       },
-      eslint = {
-        settings = {
-          run = "onSave",
-          codeActionOnSave = {
-            enable = true,
-            mode = "problems",
-          },
-        },
-        on_attach = function(client, bufnr) client.server_capabilities.documentFormattingProvider = false end,
-      },
     },
-    handlers = {},
+    handlers = {
+      -- suppress "Command setContext not found" from vtsls
+      ["workspace/executeCommand"] = function(err, result, ctx)
+        if err and err.message and err.message:match "setContext" then return end
+        return vim.lsp.handlers["workspace/executeCommand"](err, result, ctx)
+      end,
+    },
     autocmds = {
       lsp_codelens_refresh = {
         cond = "textDocument/codeLens",
