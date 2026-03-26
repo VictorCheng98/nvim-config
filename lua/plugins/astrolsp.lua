@@ -27,6 +27,13 @@ return {
     servers = {},
     ---@diagnostic disable: missing-fields
     config = {
+      gopls = {
+        settings = {
+          gopls = {
+            semanticTokens = true,
+          },
+        },
+      },
       vtsls = {
         settings = {
           typescript = {
